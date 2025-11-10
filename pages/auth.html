@@ -164,20 +164,6 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-text-primary mb-2">Family Size</label>
-                    <input 
-                        type="number" 
-                        id="signup-family-size" 
-                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        placeholder="4"
-                        min="1"
-                        max="20"
-                        value="4"
-                        required
-                    />
-                </div>
-
-                <div>
                     <label class="block text-sm font-medium text-text-primary mb-2">City</label>
                     <select 
                         id="signup-city" 
@@ -338,7 +324,6 @@
             const name = document.getElementById('signup-name').value.trim();
             const email = document.getElementById('signup-email').value.trim();
             const password = document.getElementById('signup-password').value;
-            const familySize = parseInt(document.getElementById('signup-family-size').value);
             const city = document.getElementById('signup-city').value;
 
             // Clear previous errors
@@ -386,7 +371,7 @@
                         email,
                         password,
                         user_name: name,
-                        family_size: familySize,
+                        family_size: 1,
                         city
                     })
                 });
