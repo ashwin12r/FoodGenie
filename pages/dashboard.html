@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - FoodGenie</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .stat-card-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        
+        .stat-card-orange {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-soft sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm-6 8c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm12 0c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm-6 6c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">FoodGenie</h1>
+                        <p class="text-xs text-text-secondary">Dashboard</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="dashboard.html" class="text-primary font-medium px-3 py-2 rounded-md text-sm">Dashboard</a>
+                        <a href="mealplanner.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Meal Planner</a>
+                        <a href="smartshopping.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Smart Shopping</a>
+                        <a href="recipe_discovery.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Recipes</a>
+                        <button onclick="handleLogout()" class="text-red-600 hover:text-red-700 px-3 py-2 rounded-md text-sm transition-smooth">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-2">
+                Welcome back, <span id="user-name">User</span>! 👋
+            </h1>
+            <p class="text-text-secondary">Here's what's happening with your meal planning</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Total Meal Plans -->
+            <div class="stat-card">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium opacity-90">Total Meal Plans</h3>
+                    <svg class="h-6 w-6 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold" id="total-meal-plans">0</p>
+            </div>
+
+            <!-- Active Shopping Lists -->
+            <div class="stat-card stat-card-green">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium opacity-90">Shopping Lists</h3>
+                    <svg class="h-6 w-6 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold" id="total-shopping-lists">0</p>
+            </div>
+
+            <!-- Total Spent -->
+            <div class="stat-card stat-card-blue">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium opacity-90">Total Spent</h3>
+                    <svg class="h-6 w-6 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="text-3xl font-bold">₹<span id="total-spent">0</span></p>
+            </div>
+
+            <!-- Preferences Status -->
+            <div class="stat-card stat-card-orange">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium opacity-90">Profile Status</h3>
+                    <svg class="h-6 w-6 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <p class="text-xl font-bold" id="profile-status">Not Set</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-text-primary mb-4">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="onboarding.html" class="flex items-center p-4 border-2 border-primary rounded-lg hover:bg-primary-50 transition-all">
+                    <svg class="h-8 w-8 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                        <h3 class="font-semibold text-text-primary">Setup Preferences</h3>
+                        <p class="text-sm text-text-secondary">Configure your dietary needs</p>
+                    </div>
+                </a>
+
+                <a href="mealplanner.html" class="flex items-center p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-all">
+                    <svg class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    <div>
+                        <h3 class="font-semibold text-text-primary">Create Meal Plan</h3>
+                        <p class="text-sm text-text-secondary">Plan your weekly meals</p>
+                    </div>
+                </a>
+
+                <a href="smartshopping.html" class="flex items-center p-4 border-2 border-blue-500 rounded-lg hover:bg-blue-50 transition-all">
+                    <svg class="h-8 w-8 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <div>
+                        <h3 class="font-semibold text-text-primary">Smart Shopping</h3>
+                        <p class="text-sm text-text-secondary">AI-powered grocery ordering</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Recent Meal Plans -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold text-text-primary mb-4">Recent Meal Plans</h2>
+                <div id="recent-meal-plans" class="space-y-3">
+                    <p class="text-text-secondary text-center py-8">No meal plans yet</p>
+                </div>
+            </div>
+
+            <!-- Recent Shopping Lists -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold text-text-primary mb-4">Recent Shopping Lists</h2>
+                <div id="recent-shopping-lists" class="space-y-3">
+                    <p class="text-text-secondary text-center py-8">No shopping lists yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Info Section -->
+        <div class="mt-8 bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-xl font-bold text-text-primary mb-4">Account Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <p class="text-sm text-text-secondary">Email</p>
+                    <p class="font-semibold" id="user-email">-</p>
+                </div>
+                <div>
+                    <p class="text-sm text-text-secondary">Family Size</p>
+                    <p class="font-semibold"><span id="user-family-size">-</span> members</p>
+                </div>
+                <div>
+                    <p class="text-sm text-text-secondary">City</p>
+                    <p class="font-semibold" id="user-city">-</p>
+                </div>
+                <div>
+                    <p class="text-sm text-text-secondary">Member Since</p>
+                    <p class="font-semibold" id="user-created">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8000';
+
+        // Check authentication
+        function checkAuth() {
+            const user = localStorage.getItem('foodgenie-user');
+            if (!user) {
+                window.location.href = 'auth.html';
+                return null;
+            }
+            return JSON.parse(user);
+        }
+
+        // Logout
+        function handleLogout() {
+            localStorage.removeItem('foodgenie-user');
+            localStorage.removeItem('foodgenie-token');
+            window.location.href = 'auth.html';
+        }
+
+        // Load dashboard data
+        async function loadDashboard() {
+            const user = checkAuth();
+            if (!user) return;
+
+            // Display user info
+            document.getElementById('user-name').textContent = user.user_name || 'User';
+            document.getElementById('user-email').textContent = user.email || '-';
+            document.getElementById('user-family-size').textContent = user.family_size || '-';
+            document.getElementById('user-city').textContent = user.city || '-';
+            
+            if (user.created_at) {
+                const date = new Date(user.created_at);
+                document.getElementById('user-created').textContent = date.toLocaleDateString();
+            }
+
+            try {
+                // Fetch user stats
+                const response = await fetch(`${API_BASE_URL}/api/user/dashboard/${user.email}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update stats
+                    document.getElementById('total-meal-plans').textContent = data.total_meal_plans || 0;
+                    document.getElementById('total-shopping-lists').textContent = data.total_shopping_lists || 0;
+                    document.getElementById('total-spent').textContent = (data.total_spent || 0).toFixed(2);
+                    document.getElementById('profile-status').textContent = data.preferences_set ? 'Complete' : 'Incomplete';
+
+                    // Display recent meal plans
+                    if (data.recent_meal_plans && data.recent_meal_plans.length > 0) {
+                        const mealPlansHtml = data.recent_meal_plans.map(plan => `
+                            <div class="border-l-4 border-primary pl-4 py-2">
+                                <p class="font-semibold text-text-primary">${plan.start_date} - ${plan.end_date}</p>
+                                <p class="text-sm text-text-secondary">₹${plan.total_cost} • ${plan.total_calories} cal</p>
+                            </div>
+                        `).join('');
+                        document.getElementById('recent-meal-plans').innerHTML = mealPlansHtml;
+                    }
+
+                    // Display recent shopping lists
+                    if (data.recent_shopping_lists && data.recent_shopping_lists.length > 0) {
+                        const shoppingListsHtml = data.recent_shopping_lists.map(list => `
+                            <div class="border-l-4 border-green-500 pl-4 py-2">
+                                <p class="font-semibold text-text-primary">${list.created_at}</p>
+                                <p class="text-sm text-text-secondary">₹${list.total_cost} • ${list.status}</p>
+                            </div>
+                        `).join('');
+                        document.getElementById('recent-shopping-lists').innerHTML = shoppingListsHtml;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', loadDashboard);
+    </script>
+</body>
+</html>

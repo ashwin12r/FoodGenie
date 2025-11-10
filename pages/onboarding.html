@@ -1030,13 +1030,63 @@
         }
 
         function completeSetup() {
-            // Save data to localStorage (in a real app, this would go to a server)
-            localStorage.setItem('FoodGenie-profile', JSON.stringify(formData));
+            // Check if user is logged in
+            const user = localStorage.getItem('foodgenie-user');
+            if (!user) {
+                alert('Please login first to save your preferences');
+                window.location.href = 'auth.html';
+                return;
+            }
             
-            // Show success message and redirect
-            alert('Welcome to Food Genie! Your profile has been created successfully.');
-            window.location.href = 'meal_planner.html';
+            const userData = JSON.parse(user);
+            
+            // Save preferences to backend
+            savePreferencesToBackend(userData.email, formData)
+                .then(() => {
+                    // Save data to localStorage as backup
+                    localStorage.setItem('foodgenie-profile', JSON.stringify(formData));
+                    
+                    // Show success message and redirect
+                    alert('Welcome to FoodGenie! Your preferences have been saved successfully.');
+                    window.location.href = 'dashboard.html';
+                })
+                .catch(error => {
+                    console.error('Error saving preferences:', error);
+                    alert('Error saving preferences. Please try again.');
+                });
         }
+        
+        async function savePreferencesToBackend(email, preferences) {
+            const API_BASE_URL = 'http://localhost:8000';
+            
+            const response = await fetch(`${API_BASE_URL}/api/preferences/save`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    ...preferences
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to save preferences');
+            }
+            
+            return response.json();
+        }
+
+        // Check if user is logged in on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const user = localStorage.getItem('foodgenie-user');
+            if (!user) {
+                const proceed = confirm('You need to login/signup to continue. Click OK to go to login page.');
+                if (proceed) {
+                    window.location.href = 'auth.html';
+                }
+            }
+        });
 
         // Initialize the first step
         showStep(1);
