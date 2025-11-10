@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Shopping - FoodGenie | Compare Prices Across BigBasket, Instamart & Zepto</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Real-time grocery price comparison across BigBasket, Instamart, and Zepto. Smart shopping lists with budget optimization and delivery time estimates." />
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-soft sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm-6 8c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm12 0c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm-6 6c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">FoodGenie</h1>
+                        <p class="text-xs text-text-secondary">Smart Kitchen Companion</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-primary font-medium px-3 py-2 rounded-md text-sm">Home</a>
+                        <a href="mealplanner.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Meal Planner</a>
+                        <a href="smartshopping.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Smart Shopping</a>
+                        <a href="recipe_discovery.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Recipes</a>
+                        <a href="onboarding.html" class="btn-primary text-sm">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-neutral-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base transition-smooth">Home</a>
+                <a href="meal_planner.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base transition-smooth">Meal Planner</a>
+                <a href="smart_shopping.html" class="text-primary block px-3 py-2 rounded-md text-base font-medium">Smart Shopping</a>
+                <a href="recipe_discovery.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base transition-smooth">Recipes</a>
+                <a href="onboarding.html" class="btn-primary block text-center mx-3 mt-4">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-secondary-50 to-primary-50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary-100/20 to-primary-100/20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="text-center">
+                <h1 class="text-3xl lg:text-5xl font-bold text-text-primary mb-4">
+                    Smart Shopping Center
+                </h1>
+                <p class="text-lg text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Compare prices across BigBasket, Instamart & Zepto in real-time. Get the best deals with optimized shopping lists and instant price alerts.
+                </p>
+                
+                <!-- Real-time Savings Display -->
+                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto shadow-medium">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-secondary">₹1,247</div>
+                            <div class="text-sm text-text-secondary">Saved Today</div>
+                        </div>
+                        <div class="text-center border-l border-r border-neutral-300">
+                            <div class="text-2xl font-bold text-primary">23%</div>
+                            <div class="text-sm text-text-secondary">Avg Savings</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-accent">15 min</div>
+                            <div class="text-sm text-text-secondary">Fastest Delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping List Builder -->
+    <section class="py-12 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Shopping List Panel -->
+                <div class="lg:col-span-1">
+                    <div class="card p-6 sticky top-24">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-text-primary">Shopping List</h2>
+                            <button class="text-primary hover:text-primary-700 transition-smooth">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Add Item Input -->
+                        <div class="mb-6">
+                            <div class="relative">
+                                <input type="text" placeholder="Add grocery item..." class="input-field pr-10" id="add-item-input" />
+                                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary hover:text-primary-700 transition-smooth" onclick="addItem()">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Shopping List Items -->
+                        <div class="space-y-3 mb-6" id="shopping-list">
+                            <div class="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-3 text-primary" />
+                                    <span class="text-text-primary">Basmati Rice (1kg)</span>
+                                </div>
+                                <button class="text-neutral-400 hover:text-accent transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-3 text-primary" />
+                                    <span class="text-text-primary">Toor Dal (500g)</span>
+                                </div>
+                                <button class="text-neutral-400 hover:text-accent transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-3 text-primary" />
+                                    <span class="text-text-primary">Onions (2kg)</span>
+                                </div>
+                                <button class="text-neutral-400 hover:text-accent transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Budget Tracker -->
+                        <div class="border-t border-neutral-200 pt-4 mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-text-secondary">Budget</span>
+                                <span class="text-text-primary font-semibold">₹2,000</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-text-secondary">Current Total</span>
+                                <span class="text-text-primary font-semibold">₹1,547</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-secondary font-semibold">Savings</span>
+                                <span class="text-secondary font-semibold">₹453</span>
+                            </div>
+                            <div class="w-full bg-neutral-200 rounded-full h-2 mt-3">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 77%"></div>
+                            </div>
+                        </div>
+
+                        <!-- AI Auto-Order Button -->
+                        <button onclick="showMealSelectionModal()" class="w-full bg-secondary h-2 rounded-full from-accent to-accent-600 text-white font-semibold py-3 px-4 rounded-lg hover:from-accent-600 hover:to-accent-700 transition-smooth flex items-center justify-center gap-2 shadow-lg">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                
+                            </svg>
+                            AI Auto-Order from Meal Plan
+                        </button>
+                        <p class="text-xs text-center text-text-secondary mt-2">
+                            🤖 Select today's dish & auto-order ingredients
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Price Comparison Panel -->
+                <div class="lg:col-span-2">
+                    <!-- Store Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button class="btn-primary text-sm" onclick="filterStore('all')">All Stores</button>
+                        <button class="bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 px-4 rounded-lg transition-smooth text-sm" onclick="filterStore('bigbasket')">
+                            BigBasket
+                        </button>
+                        <button class="bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 px-4 rounded-lg transition-smooth text-sm" onclick="filterStore('instamart')">
+                            Instamart
+                        </button>
+                        <button class="bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 px-4 rounded-lg transition-smooth text-sm" onclick="filterStore('zepto')">
+                            Zepto
+                        </button>
+                    </div>
+
+                    <!-- Price Comparison Cards -->
+                    <div class="space-y-6">
+                        <!-- Basmati Rice Comparison -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Basmati Rice" class="w-16 h-16 rounded-lg object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/33239/wheat-field-wheat-cereals-grain.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-text-primary">Basmati Rice</h3>
+                                        <p class="text-sm text-text-secondary">1kg Pack • Premium Quality</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-secondary font-semibold">Best Price</div>
+                                    <div class="text-xl font-bold text-text-primary">₹185</div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <!-- BigBasket -->
+                                <div class="border border-neutral-200 rounded-lg p-4 relative">
+                                    <div class="absolute top-2 right-2">
+                                        <span class="bg-secondary-100 text-secondary text-xs px-2 py-1 rounded-full">Best Price</span>
+                                    </div>
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">BB</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">BigBasket</div>
+                                            <div class="text-xs text-text-secondary">30-45 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹185</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹220</div>
+                                    <button class="w-full btn-secondary text-sm py-2">Add to Cart</button>
+                                </div>
+
+                                <!-- Instamart -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">IM</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Instamart</div>
+                                            <div class="text-xs text-text-secondary">15-25 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹195</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹230</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+
+                                <!-- Zepto -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">Z</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Zepto</div>
+                                            <div class="text-xs text-text-secondary">10-15 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹199</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹235</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Toor Dal Comparison -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.pexels.com/photos/4198019/pexels-photo-4198019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Toor Dal" class="w-16 h-16 rounded-lg object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-text-primary">Toor Dal</h3>
+                                        <p class="text-sm text-text-secondary">500g Pack • Organic</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-secondary font-semibold">Best Price</div>
+                                    <div class="text-xl font-bold text-text-primary">₹95</div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <!-- Zepto -->
+                                <div class="border border-neutral-200 rounded-lg p-4 relative">
+                                    <div class="absolute top-2 right-2">
+                                        <span class="bg-secondary-100 text-secondary text-xs px-2 py-1 rounded-full">Best Price</span>
+                                    </div>
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">Z</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Zepto</div>
+                                            <div class="text-xs text-text-secondary">10-15 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹95</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹110</div>
+                                    <button class="w-full btn-secondary text-sm py-2">Add to Cart</button>
+                                </div>
+
+                                <!-- Instamart -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">IM</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Instamart</div>
+                                            <div class="text-xs text-text-secondary">15-25 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹98</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹115</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+
+                                <!-- BigBasket -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">BB</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">BigBasket</div>
+                                            <div class="text-xs text-text-secondary">30-45 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹102</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹120</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Onions Comparison -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.pixabay.com/photo/2016/03/05/19/02/onions-1238332_1280.jpg" alt="Onions" class="w-16 h-16 rounded-lg object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-text-primary">Fresh Onions</h3>
+                                        <p class="text-sm text-text-secondary">2kg Pack • Farm Fresh</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-secondary font-semibold">Best Price</div>
+                                    <div class="text-xl font-bold text-text-primary">₹45</div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <!-- Instamart -->
+                                <div class="border border-neutral-200 rounded-lg p-4 relative">
+                                    <div class="absolute top-2 right-2">
+                                        <span class="bg-secondary-100 text-secondary text-xs px-2 py-1 rounded-full">Best Price</span>
+                                    </div>
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">IM</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Instamart</div>
+                                            <div class="text-xs text-text-secondary">15-25 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹45</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹55</div>
+                                    <button class="w-full btn-secondary text-sm py-2">Add to Cart</button>
+                                </div>
+
+                                <!-- BigBasket -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">BB</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">BigBasket</div>
+                                            <div class="text-xs text-text-secondary">30-45 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹48</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹58</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+
+                                <!-- Zepto -->
+                                <div class="border border-neutral-200 rounded-lg p-4">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-xs font-bold">Z</span>
+                                        </div>
+                                        <div>
+                                            <div class="font-semibold text-text-primary">Zepto</div>
+                                            <div class="text-xs text-text-secondary">10-15 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">₹52</div>
+                                    <div class="text-sm text-text-secondary line-through mb-2">₹62</div>
+                                    <button class="w-full bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 rounded-lg transition-smooth text-sm">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Trend Analytics -->
+    <section class="py-12 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">Price Trend Analytics</h2>
+                <p class="text-lg text-text-secondary">Track seasonal price changes and optimize your shopping timing</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Price Trend Chart -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-text-primary mb-4">Basmati Rice - 30 Day Trend</h3>
+                    <div class="h-64 bg-neutral-50 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-full h-full" viewBox="0 0 400 200">
+                            <!-- Chart Background -->
+                            <rect width="400" height="200" fill="#F9FAFB"/>
+                            
+                            <!-- Grid Lines -->
+                            <g stroke="#E5E7EB" stroke-width="1">
+                                <line x1="50" y1="20" x2="50" y2="180"/>
+                                <line x1="50" y1="180" x2="380" y2="180"/>
+                                <line x1="50" y1="140" x2="380" y2="140"/>
+                                <line x1="50" y1="100" x2="380" y2="100"/>
+                                <line x1="50" y1="60" x2="380" y2="60"/>
+                            </g>
+                            
+                            <!-- Price Line -->
+                            <polyline fill="none" stroke="#059669" stroke-width="3" points="50,120 100,110 150,130 200,100 250,90 300,95 350,85 380,80"/>
+                            
+                            <!-- Data Points -->
+                            <g fill="#059669">
+                                <circle cx="50" cy="120" r="4"/>
+                                <circle cx="100" cy="110" r="4"/>
+                                <circle cx="150" cy="130" r="4"/>
+                                <circle cx="200" cy="100" r="4"/>
+                                <circle cx="250" cy="90" r="4"/>
+                                <circle cx="300" cy="95" r="4"/>
+                                <circle cx="350" cy="85" r="4"/>
+                                <circle cx="380" cy="80" r="4"/>
+                            </g>
+                            
+                            <!-- Labels -->
+                            <g fill="#6B7280" font-size="12" text-anchor="middle">
+                                <text x="50" y="195">Week 1</text>
+                                <text x="150" y="195">Week 2</text>
+                                <text x="250" y="195">Week 3</text>
+                                <text x="350" y="195">Week 4</text>
+                            </g>
+                            
+                            <!-- Y-axis Labels -->
+                            <g fill="#6B7280" font-size="12" text-anchor="end">
+                                <text x="45" y="185">₹160</text>
+                                <text x="45" y="145">₹180</text>
+                                <text x="45" y="105">₹200</text>
+                                <text x="45" y="65">₹220</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-secondary rounded-full mr-2"></div>
+                            <span class="text-text-secondary">Current Price: ₹185</span>
+                        </div>
+                        <div class="text-secondary font-semibold">↓ 12% from last month</div>
+                    </div>
+                </div>
+
+                <!-- Seasonal Insights -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-text-primary mb-4">Seasonal Price Insights</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Onions</div>
+                                    <div class="text-sm text-text-secondary">Best time to buy: October-December</div>
+                                </div>
+                            </div>
+                            <div class="text-secondary font-semibold">↓ 25%</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-3 bg-primary-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Tomatoes</div>
+                                    <div class="text-sm text-text-secondary">Avoid: June-August (Monsoon)</div>
+                                </div>
+                            </div>
+                            <div class="text-accent font-semibold">↑ 40%</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-neutral-400 rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Rice & Pulses</div>
+                                    <div class="text-sm text-text-secondary">Stable pricing year-round</div>
+                                </div>
+                            </div>
+                            <div class="text-neutral-500 font-semibold">± 5%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="font-semibold text-text-primary">Smart Tip</span>
+                        </div>
+                        <p class="text-sm text-text-secondary">Stock up on onions and potatoes during October-December for maximum savings throughout the year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Purchase Recommendations -->
+    <section class="py-12 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-text-primary mb-4">Bulk Purchase Recommendations</h2>
+                <p class="text-lg text-text-secondary">Save more with smart bulk buying suggestions based on your consumption patterns</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Rice Bulk Deal -->
+                <div class="card card-hover p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Bulk Rice" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/33239/wheat-field-wheat-cereals-grain.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">Save ₹180</div>
+                            <div class="text-xs text-text-secondary">vs regular price</div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Basmati Rice - 10kg</h3>
+                    <p class="text-sm text-text-secondary mb-4">Premium quality, 6-month shelf life</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-text-primary">₹1,650</div>
+                            <div class="text-sm text-text-secondary line-through">₹1,830</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">₹165/kg</div>
+                            <div class="text-xs text-text-secondary">Best unit price</div>
+                        </div>
+                    </div>
+                    <button class="w-full btn-primary">Add to Bulk Order</button>
+                </div>
+
+                <!-- Dal Bulk Deal -->
+                <div class="card card-hover p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <img src="https://images.pexels.com/photos/4198019/pexels-photo-4198019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Bulk Dal" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">Save ₹95</div>
+                            <div class="text-xs text-text-secondary">vs regular price</div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Mixed Dal Combo - 5kg</h3>
+                    <p class="text-sm text-text-secondary mb-4">Toor, Moong, Chana, Masoor dal</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-text-primary">₹875</div>
+                            <div class="text-sm text-text-secondary line-through">₹970</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">₹175/kg</div>
+                            <div class="text-xs text-text-secondary">Mixed variety</div>
+                        </div>
+                    </div>
+                    <button class="w-full btn-primary">Add to Bulk Order</button>
+                </div>
+
+                <!-- Oil Bulk Deal -->
+                <div class="card card-hover p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Cooking Oil" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2016/12/06/18/27/oil-1887234_1280.jpg'; this.onerror=null;" />
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">Save ₹120</div>
+                            <div class="text-xs text-text-secondary">vs regular price</div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Sunflower Oil - 5L</h3>
+                    <p class="text-sm text-text-secondary mb-4">Heart healthy, refined oil</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold text-text-primary">₹580</div>
+                            <div class="text-sm text-text-secondary line-through">₹700</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-secondary font-semibold">₹116/L</div>
+                            <div class="text-xs text-text-secondary">Bulk discount</div>
+                        </div>
+                    </div>
+                    <button class="w-full btn-primary">Add to Bulk Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Checkout Section -->
+    <section class="py-12 bg-gradient-to-r from-primary to-primary-700">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                Ready to Save on Your Groceries?
+            </h2>
+            <p class="text-xl text-primary-100 mb-8">
+                Compare prices, optimize your shopping list, and get the best deals delivered to your doorstep
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-primary-50 transition-smooth">
+                    Checkout with Best Prices
+                </button>
+                <button onclick="showMealSelectionModal()" class="bg-gradient-to-r from-accent to-accent-600 text-white font-semibold px-8 py-3 rounded-lg hover:from-accent-600 hover:to-accent-700 transition-smooth flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    AI Auto-Order from Meal Plan
+                </button>
+                <a href="mealplanner.html" class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-primary transition-smooth">
+                    Plan Meals First
+                </a>
+            </div>
+            <p class="text-sm text-primary-200 mt-4">Free delivery on orders above ₹500 • Price match guarantee</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm-6 8c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm12 0c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm-6 6c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">FoodGenie</span>
+                    </div>
+                    <p class="text-neutral-400 text-sm">
+                        Smart nutrition, happy families, healthy budgets. Where tradition meets intelligent meal planning.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="homepage.html" class="text-neutral-400 hover:text-white transition-smooth">Home</a></li>
+                        <li><a href="meal_planner.html" class="text-neutral-400 hover:text-white transition-smooth">Meal Planner</a></li>
+                        <li><a href="smart_shopping.html" class="text-neutral-400 hover:text-white transition-smooth">Smart Shopping</a></li>
+                        <li><a href="recipe_discovery.html" class="text-neutral-400 hover:text-white transition-smooth">Recipes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm text-neutral-400">
+                        <li>support@FoodGenie.in</li>
+                        <li>+91 98765 43210</li>
+                        <li>Mumbai, Maharashtra</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-neutral-400">© 2025 FoodGenie. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)" class="text-neutral-400 hover:text-white transition-smooth">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Price Alert Notification -->
+    <div id="price-alert" class="fixed bottom-4 right-4 bg-secondary text-white p-4 rounded-lg shadow-medium hidden max-w-sm">
+        <div class="flex items-center justify-between">
+            <div>
+                <h4 class="font-semibold">Price Drop Alert!</h4>
+                <p class="text-sm text-secondary-100">Basmati Rice now ₹180 (-₹15)</p>
+            </div>
+            <button onclick="dismissAlert()" class="text-secondary-100 hover:text-white ml-4">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Add item to shopping list
+        function addItem() {
+            const input = document.getElementById('add-item-input');
+            const itemName = input.value.trim();
+            
+            if (itemName) {
+                const shoppingList = document.getElementById('shopping-list');
+                const newItem = document.createElement('div');
+                newItem.className = 'flex items-center justify-between p-3 bg-neutral-50 rounded-lg';
+                newItem.innerHTML = `
+                    <div class="flex items-center">
+                        <input type="checkbox" class="mr-3 text-primary">
+                        <span class="text-text-primary">${itemName}</span>
+                    </div>
+                    <button class="text-neutral-400 hover:text-accent transition-smooth" onclick="removeItem(this)">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                `;
+                shoppingList.appendChild(newItem);
+                input.value = '';
+            }
+        }
+
+        // Remove item from shopping list
+        function removeItem(button) {
+            button.closest('.flex').remove();
+        }
+
+        // Filter stores
+        function filterStore(store) {
+            // Update active button
+            const buttons = document.querySelectorAll('button[onclick^="filterStore"]');
+            buttons.forEach(btn => {
+                btn.className = 'bg-neutral-100 text-text-primary hover:bg-neutral-200 font-semibold py-2 px-4 rounded-lg transition-smooth text-sm';
+            });
+            event.target.className = 'btn-primary text-sm';
+            
+            // Filter logic would go here
+            console.log('Filtering by store:', store);
+        }
+
+        // Show price alert
+        function showPriceAlert() {
+            const alert = document.getElementById('price-alert');
+            alert.classList.remove('hidden');
+            setTimeout(() => {
+                alert.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Dismiss price alert
+        function dismissAlert() {
+            document.getElementById('price-alert').classList.add('hidden');
+        }
+
+        // Add item input enter key support
+        document.getElementById('add-item-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addItem();
+            }
+        });
+
+        // Simulate price alert after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(showPriceAlert, 3000);
+        });
+
+        // AI Auto-Order Function
+        async function automateOrder() {
+            const button = event.target;
+            const originalHTML = button.innerHTML;
+            
+            try {
+                // Disable button and show loading
+                button.disabled = true;
+                button.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 inline" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Automating...
+                `;
+
+                // Get ingredients from shopping list (you can customize this)
+                const ingredients = ['Pigeon peas', 'garam masala', 'ginger', 'red onion', 'kasuri methi'];
+                
+                // Call the automation API
+                const response = await fetch('http://localhost:8000/api/automate-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        store_name: 'BigBasket',
+                        ingredients: ingredients
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    button.innerHTML = `
+                        <svg class="w-5 h-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Browser Opened!
+                    `;
+                    
+                    // Show success message
+                    alert('🎉 Success! Browser opened at BigBasket.\\n\\nThe automation searched for all your ingredients!\\n\\nYou can now add items to cart and complete checkout in the browser.');
+                } else {
+                    throw new Error(result.message || 'Automation failed');
+                }
+            } catch (error) {
+                console.error('Automation error:', error);
+                button.innerHTML = originalHTML;
+                button.disabled = false;
+                alert('❌ Automation failed: ' + error.message + '\\n\\nMake sure the backend server is running!');
+            }
+        }
+
+        // ===== DYNAMIC MEAL SELECTION & AI AUTO-ORDER =====
+        
+        async function showMealSelectionModal() {
+            console.log('📅 Fetching today\'s meal plan...');
+            
+            try {
+                // Get user email from localStorage
+                const userEmail = localStorage.getItem('user-email') || 'guest@FoodGenie.com';
+                
+                // Fetch user's meal plans from backend
+                const response = await fetch(`http://localhost:8000/api/meal-plan/user/${userEmail}`);
+                const data = await response.json();
+                
+                if (!data.meal_plans || data.meal_plans.length === 0) {
+                    alert('⚠️ No meal plan found!\\n\\nPlease create a meal plan first in the Meal Planner page.');
+                    window.location.href = 'mealplanner.html';
+                    return;
+                }
+                
+                // Get the most recent meal plan
+                const latestMealPlan = data.meal_plans[0];
+                const mealPlan = latestMealPlan.plan_data;
+                
+                console.log('📋 Full meal plan structure:', mealPlan);
+                console.log('📋 Meal plan keys:', Object.keys(mealPlan));
+                
+                // Get today's day name (e.g., "Monday")
+                const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+                console.log('📅 Today is:', today);
+                
+                // Find today's meals from weekly_plan array
+                let todaysMeals = null;
+                let dayName = today;
+                
+                if (mealPlan.weekly_plan && Array.isArray(mealPlan.weekly_plan)) {
+                    console.log('✅ Found weekly_plan array with', mealPlan.weekly_plan.length, 'days');
+                    
+                    // Find today's day in the weekly plan
+                    const todayPlan = mealPlan.weekly_plan.find(day => 
+                        day.day && day.day.toLowerCase() === today.toLowerCase()
+                    );
+                    
+                    if (todayPlan && todayPlan.meals) {
+                        todaysMeals = todayPlan.meals;
+                        console.log('✅ Found meals for', today, ':', todaysMeals);
+                    } else {
+                        // Use first available day
+                        console.log('⚠️ No meals for', today, ', using first available day');
+                        const firstDay = mealPlan.weekly_plan[0];
+                        todaysMeals = firstDay.meals;
+                        dayName = firstDay.day;
+                        alert(`ℹ️ No meals planned for ${today}.\\n\\nShowing ${dayName}'s meals instead.`);
+                    }
+                } else {
+                    console.error('❌ Unexpected meal plan structure:', mealPlan);
+                }
+                
+                if (!todaysMeals) {
+                    console.error('❌ Could not find any meals in the plan');
+                    alert(`⚠️ No meals found in your meal plan!\\n\\nPlease generate a new meal plan first.`);
+                    return;
+                }
+                
+                console.log('🍽️ Displaying meals for:', dayName);
+                console.log('🍽️ Meals:', todaysMeals);
+                
+                // Show modal with today's dishes
+                showDishSelectionModal(todaysMeals, dayName);
+                
+            } catch (error) {
+                console.error('Error fetching meal plan:', error);
+                alert('❌ Failed to load meal plan.\\n\\nMake sure backend server is running!');
+            }
+        }
+        
+        function showDishSelectionModal(todaysMeals, dayName) {
+            // Create modal HTML
+            const modalHTML = `
+                <div id="meal-selection-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onclick="closeMealModal(event)">
+                    <div class="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()">
+                        <div class="p-6 border-b border-neutral-200 bg-gradient-to-r from-primary-50 to-secondary-50">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-text-primary">Today's Meal Plan</h2>
+                                    <p class="text-text-secondary">${dayName.charAt(0).toUpperCase() + dayName.slice(1)} - Select a dish to auto-order ingredients</p>
+                                </div>
+                                <button onclick="closeMealModal()" class="text-neutral-400 hover:text-accent transition-smooth">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 space-y-4">
+                            ${generateMealCards(todaysMeals)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        function generateMealCards(meals) {
+            let html = '';
+            
+            ['breakfast', 'lunch', 'dinner'].forEach(mealType => {
+                const meal = meals[mealType];
+                if (meal && meal.dish) {
+                    const mealEmoji = mealType === 'breakfast' ? '🌅' : mealType === 'lunch' ? '🌞' : '🌙';
+                    
+                    // Extract dish name (might be "Dal Tadka + Rice" format)
+                    const dishName = meal.dish;
+                    const mainDishName = dishName.split('+')[0].trim();
+                    
+                    // Try to get ingredients - they're not in the meal plan, we'll fetch from recipe
+                    let ingredients = [];
+                    
+                    console.log(`${mealType} (${dishName}):`, 'calories:', meal.calories, 'cost:', meal.cost);
+                    
+                    html += `
+                        <div class="border border-neutral-200 rounded-lg p-4 hover:border-primary transition-smooth cursor-pointer" onclick='selectDish(${JSON.stringify(mainDishName)}, ${JSON.stringify(ingredients)}, ${JSON.stringify(mealType)})'>
+                            <div class="flex items-start gap-4">
+                                <div class="text-4xl">${mealEmoji}</div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg text-text-primary">${mealType.charAt(0).toUpperCase() + mealType.slice(1)}</h3>
+                                    <p class="text-primary font-semibold text-base">${dishName}</p>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm text-text-secondary">
+                                        <span>⏱️ ${meal.time || '30 min'}</span>
+                                        <span>•</span>
+                                        <span>💰 ${meal.cost || '₹50'}</span>
+                                        <span>•</span>
+                                        <span>🔥 ${meal.calories || '400'} kcal</span>
+                                    </div>
+                                    <p class="text-xs text-text-secondary mt-2 italic">${meal.reason || 'Balanced nutrition and taste'}</p>
+                                    <p class="text-xs text-accent mt-1">⚠️ Ingredients will be fetched from recipe</p>
+                                </div>
+                                <button class="btn-primary text-sm whitespace-nowrap">
+                                    Select & Order
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            if (html === '') {
+                html = '<p class="text-center text-text-secondary py-8">No meals found for today</p>';
+            }
+            
+            return html;
+        }
+        
+        function closeMealModal(event) {
+            if (!event || event.target.id === 'meal-selection-modal' || !event.target.closest) {
+                const modal = document.getElementById('meal-selection-modal');
+                if (modal) {
+                    modal.remove();
+                }
+            }
+        }
+        
+        async function selectDish(dishName, ingredients, mealType) {
+            console.log(`✅ Selected ${dishName} (${mealType})`);
+            console.log('📝 Ingredients from meal plan:', ingredients);
+            
+            // Close modal
+            closeMealModal();
+            
+            // If no ingredients, fetch from recipe API
+            if (!ingredients || ingredients.length === 0) {
+                console.log('⚠️ No ingredients in meal plan, fetching from recipe API...');
+                
+                try {
+                    const response = await fetch(`http://localhost:8000/api/recipes/${encodeURIComponent(dishName)}`);
+                    if (response.ok) {
+                        const recipeData = await response.json();
+                        console.log('📖 Full recipe data:', recipeData);
+                        console.log('📖 Recipe data keys:', Object.keys(recipeData));
+                        
+                        // Check if recipe is wrapped in a 'recipe' object
+                        const recipe = recipeData.recipe || recipeData;
+                        console.log('📖 Unwrapped recipe:', recipe);
+                        
+                        // Try to get ingredients from recipe - check multiple possible field names
+                        if (recipe.Ingredients || recipe.ingredients) {
+                            const ingredientData = recipe.Ingredients || recipe.ingredients;
+                            console.log('📝 Raw ingredient data:', ingredientData);
+                            console.log('📝 Ingredient data type:', typeof ingredientData);
+                            
+                            if (typeof ingredientData === 'string') {
+                                // Parse string ingredients
+                                ingredients = ingredientData
+                                    .split(',')
+                                    .map(ing => ing.trim())
+                                    .filter(ing => ing && ing.length > 0);
+                            } else if (Array.isArray(ingredientData)) {
+                                ingredients = ingredientData.filter(ing => ing && ing.length > 0);
+                            }
+                        }
+                        console.log('✅ Parsed ingredients:', ingredients);
+                        console.log('✅ Total ingredients found:', ingredients ? ingredients.length : 0);
+                    } else {
+                        console.error('❌ Recipe API returned status:', response.status);
+                    }
+                } catch (error) {
+                    console.error('❌ Error fetching recipe:', error);
+                }
+            }
+            
+            // Final check
+            if (!ingredients || ingredients.length === 0) {
+                alert('⚠️ No ingredients found for this dish!\\n\\nPlease add ingredients manually or select a different dish.');
+                return;
+            }
+            
+            // Show confirmation
+            const confirmMessage = `🍽️ ${dishName} (${mealType})\\n\\n📝 Ingredients (${ingredients.length}):\\n${ingredients.slice(0, 8).join(', ')}${ingredients.length > 8 ? '...' : ''}\\n\\n🤖 AI will now search BigBasket for these ingredients.\\n\\nReady to proceed?`;
+            
+            if (!confirm(confirmMessage)) {
+                return;
+            }
+            
+            // Start automation with extracted ingredients
+            await automateOrderWithIngredients(dishName, ingredients);
+        }
+        
+        async function automateOrderWithIngredients(dishName, ingredients) {
+            if (ingredients.length === 0) {
+                alert('⚠️ No ingredients found for this dish!');
+                return;
+            }
+            
+            console.log(`🚀 Starting AI automation for ${dishName}`);
+            console.log('Ingredients to search:', ingredients);
+            
+            // Show loading indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = 'automation-loading';
+            loadingDiv.innerHTML = `
+                <div class="fixed top-4 right-4 bg-white shadow-2xl rounded-lg p-4 z-50 border-l-4 border-accent">
+                    <div class="flex items-center gap-3">
+                        <svg class="animate-spin h-5 w-5 text-accent" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <div>
+                            <p class="font-semibold text-text-primary">🤖 AI Auto-Order Active</p>
+                            <p class="text-sm text-text-secondary">Searching ${ingredients.length} ingredients on BigBasket...</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loadingDiv);
+            
+            try {
+                const response = await fetch('http://localhost:8000/api/automate-order', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        store_name: 'BigBasket',
+                        ingredients: ingredients
+                    })
+                });
+                
+                const result = await response.json();
+                
+                // Remove loading
+                loadingDiv.remove();
+                
+                if (result.success) {
+                    const foundCount = result.automation_result?.result?.found || ingredients.length;
+                    alert(`🎉 Success!\\n\\n✅ Found: ${foundCount}/${ingredients.length} ingredients\\n🌐 Browser opened at BigBasket\\n\\n📦 You can now add items to cart and checkout!`);
+                } else {
+                    throw new Error(result.message || 'Automation failed');
+                }
+            } catch (error) {
+                console.error('Automation error:', error);
+                loadingDiv.remove();
+                alert('❌ Automation failed: ' + error.message + '\\n\\nMake sure the backend server is running!');
+            }
+        }
+    </script>
+    
+    <!-- API Integration Scripts -->
+    <script src="api-client.js"></script>
+    <script src="smart-shopping-integration.js"></script>
+</body>
+</html>

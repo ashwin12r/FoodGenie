@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Shopping Assistant - FoodGenie</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+        .chat-container {
+            height: 600px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        .message {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+            padding: 12px 16px;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #6366f1;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        .store-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .store-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .store-card.selected {
+            border: 2px solid #6366f1;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-soft sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm-6 8c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm12 0c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm-6 6c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">FoodGenie</h1>
+                        <p class="text-xs text-text-secondary">AI Shopping Assistant</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Home</a>
+                        <a href="mealplanner.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Meal Planner</a>
+                        <a href="smart-shopping-ai.html" class="text-primary font-medium px-3 py-2 rounded-md text-sm">AI Shopping</a>
+                        <a href="recipe_discovery.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm transition-smooth">Recipes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Left Panel: Today's Meal Plan -->
+            <div class="lg:col-span-1">
+                <div class="card sticky top-24">
+                    <div class="p-6 border-b border-neutral-200">
+                        <h2 class="text-xl font-bold text-text-primary flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            Today's Meals
+                        </h2>
+                        <p class="text-sm text-text-secondary mt-1">Click a meal to add ingredients</p>
+                    </div>
+                    
+                    <div id="meal-plan-list" class="p-4 space-y-3">
+                        <!-- Meals will be loaded here -->
+                        <div class="text-center py-8 text-text-secondary">
+                            <svg class="w-16 h-16 mx-auto mb-3 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            <p>No meals planned for today</p>
+                            <a href="mealplanner.html" class="text-primary hover:underline text-sm">Create meal plan →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel: AI Chat Interface -->
+            <div class="lg:col-span-2">
+                <div class="card">
+                    <!-- Chat Header -->
+                    <div class="p-6 border-b border-neutral-200 bg-gradient-to-r from-primary-50 to-secondary-50">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold">
+                                🤖
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-xl font-bold text-text-primary">FoodGenie AI Assistant</h2>
+                                <p class="text-sm text-text-secondary">Smart shopping helper</p>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                                    Online
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div id="chat-container" class="chat-container p-6 bg-neutral-50">
+                        <!-- Welcome message -->
+                        <div class="message mb-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
+                                    🤖
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="bg-white rounded-lg rounded-tl-none shadow-sm p-4">
+                                        <p class="text-text-primary">👋 Hi! I'm your AI shopping assistant.</p>
+                                        <p class="text-text-primary mt-2">I can help you:</p>
+                                        <ul class="mt-2 space-y-1 text-sm">
+                                            <li>✓ Review ingredients from your meal plan</li>
+                                            <li>✓ Compare prices across stores</li>
+                                            <li>✓ Place orders with one click</li>
+                                            <li>✓ Track your budget</li>
+                                        </ul>
+                                        <p class="text-text-secondary text-sm mt-3">Click on a meal from today's plan to get started!</p>
+                                    </div>
+                                    <p class="text-xs text-text-secondary mt-1 ml-2">Just now</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="p-4 border-t border-neutral-200 bg-white">
+                        <div class="flex items-center space-x-2">
+                            <input 
+                                type="text" 
+                                id="user-message-input"
+                                placeholder="Type your message or select a meal above..."
+                                class="input-field flex-1"
+                                disabled
+                            />
+                            <button class="btn-primary px-6" onclick="sendUserMessage()">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Selection (Hidden initially) -->
+                <div id="store-selection" class="mt-6 hidden">
+                    <div class="card p-6">
+                        <h3 class="text-lg font-bold text-text-primary mb-4">Choose Your Store</h3>
+                        <div class="grid md:grid-cols-3 gap-4" id="store-options">
+                            <!-- Stores will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="api-client.js"></script>
+    <script src="smart-shopping-ai.js"></script>
+    <script>
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAIShopping();
+        });
+    </script>
+</body>
+</html>
