@@ -1,0 +1,22 @@
+{
+  "scenario": "High-Protein Non-Vegetarian for Muscle Gain",
+  "user_preferences": {
+    "diet": "High-Protein",
+    "preferred_cuisines": ["North Indian", "South Indian"],
+    "daily_calorie_target": 2500,
+    "weekly_budget": 1500,
+    "preferred_flavors": ["spicy"],
+    "cooking_time_limit": 60,
+    "region": "All",
+    "goals": ["muscle gain", "high-protein"],
+    "cost_per_meal_limit": 90
+  },
+  "description": "This example shows a protein-optimized meal plan for fitness enthusiasts. The system prioritizes dishes with chicken, fish, eggs, and paneer to maximize protein intake (>70g/day) while staying within a moderate budget of ₹1500/week.",
+  "expected_output": {
+    "budget_status": "optimal",
+    "avg_cost_per_meal": "₹65-75",
+    "daily_protein": "> 70g",
+    "high_protein_meals": "At least 15g protein per meal",
+    "calorie_accuracy": "> 85%"
+  }
+}
