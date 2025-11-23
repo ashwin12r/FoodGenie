@@ -6,6 +6,35 @@
     <title>FoodGenie - Weekly Meal Planner</title>
     <link rel="stylesheet" href="../css/main.css" />
     <meta name="description" content="Interactive meal planning studio with AI-powered suggestions, nutrition tracking, and budget optimization for individuals." />
+    <style>
+        @keyframes slide-in {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        
+        .animate-slide-in {
+            animation: slide-in 0.3s ease-out;
+        }
+        
+        .animate-fade-out {
+            animation: fade-out 0.3s ease-out;
+        }
+    </style>
 </head>
 <body class="bg-background min-h-screen">
     <!-- Navigation Header -->
@@ -107,7 +136,15 @@
                             </svg>
                         </button>
                     </div>
-                    <button class="btn-primary w-full" onclick="generateNewMealPlan()">Generate AI Plan</button>
+                    <div class="space-y-2">
+                        <button class="btn-primary w-full" onclick="generateNewMealPlan()">Generate AI Plan</button>
+                        <button class="btn-secondary w-full flex items-center justify-center gap-2" onclick="resetMealPlan()">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            Reset Calendar
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Dietary Filters -->
@@ -901,6 +938,112 @@
                 closeMealModal();
             }
         });
+
+        // Reset meal plan function
+        function resetMealPlan() {
+            // Show confirmation dialog
+            if (!confirm('Are you sure you want to PERMANENTLY delete the entire meal plan? This action cannot be undone and will clear all meals from the calendar.')) {
+                return;
+            }
+
+            console.log('🔄 Permanently resetting meal plan...');
+
+            // Find all meal slots by their class
+            const allMealSlots = document.querySelectorAll('.meal-slot');
+            
+            allMealSlots.forEach(slot => {
+                const onclick = slot.getAttribute('onclick');
+                
+                // Only reset slots that have the openMealModal onclick (actual meal slots)
+                if (onclick && onclick.includes('openMealModal')) {
+                    // Extract day and mealType from onclick attribute
+                    const matches = onclick.match(/openMealModal\('(\w+)',\s*'(\w+)'\)/);
+                    if (matches) {
+                        const day = matches[1];
+                        const mealType = matches[2];
+                        
+                        // Reset to empty state
+                        slot.innerHTML = `
+                            <svg class="w-6 h-6 mx-auto text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                            <p class="text-xs text-neutral-400 mt-2">Add ${mealType}</p>
+                        `;
+                        
+                        // Reset styling to dashed border
+                        slot.classList.remove('border-solid', 'border-primary-200', 'bg-primary-50');
+                        slot.classList.add('border-2', 'border-dashed', 'border-neutral-200');
+                    }
+                }
+            });
+
+            // PERMANENT DELETE: Clear from localStorage - current week's meal plan
+            const currentWeek = getMondayOfWeek(window.currentWeekOffset || 0);
+            const weekKey = currentWeek.toISOString().split('T')[0];
+            
+            // Clear from weekly-meal-plans storage (used by meal-planner-integration.js)
+            try {
+                const storedPlans = localStorage.getItem('weekly-meal-plans');
+                if (storedPlans) {
+                    const weeklyPlans = JSON.parse(storedPlans);
+                    
+                    // PERMANENTLY DELETE the entry for this week
+                    if (weeklyPlans[weekKey]) {
+                        delete weeklyPlans[weekKey];
+                        localStorage.setItem('weekly-meal-plans', JSON.stringify(weeklyPlans));
+                        console.log(`🗑️ PERMANENTLY deleted meal plan for week ${weekKey}`);
+                    }
+                }
+            } catch (error) {
+                console.error('Error clearing weekly meal plans:', error);
+            }
+            
+            // Also clear old format if exists
+            localStorage.removeItem(`meal_plan_${weekKey}`);
+            localStorage.removeItem('current-meal-plan-id');
+            localStorage.removeItem('current-shopping-list');
+            
+            // Clear from the in-memory weeklyMealPlans object (from meal-planner-integration.js)
+            if (typeof window.weeklyMealPlans !== 'undefined' && window.weeklyMealPlans) {
+                delete window.weeklyMealPlans[weekKey];
+                console.log(`🗑️ Cleared in-memory meal plan for week ${weekKey}`);
+            }
+
+            // Reset budget display
+            const budgetDisplay = document.getElementById('weekly-budget-display');
+            const nutritionDisplay = document.getElementById('nutrition-goals-display');
+            
+            if (budgetDisplay) budgetDisplay.textContent = '₹0';
+            if (nutritionDisplay) nutritionDisplay.textContent = '0%';
+
+            // Show success message
+            showNotification('✅ Meal plan has been permanently deleted!', 'success');
+            
+            console.log('✅ Meal plan permanently reset complete');
+        }
+
+        // Helper function to show notifications
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg animate-slide-in ${
+                type === 'success' ? 'bg-green-500' : 
+                type === 'error' ? 'bg-red-500' : 
+                'bg-blue-500'
+            } text-white`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('animate-fade-out');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Make resetMealPlan globally accessible
+        window.resetMealPlan = resetMealPlan;
     </script>
     
     <!-- API Integration Scripts -->

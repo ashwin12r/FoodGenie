@@ -13,6 +13,9 @@ let userEmail = localStorage.getItem('user-email') || 'guest@mealcraft.com';
 // Store meal plans by week (key: week start date, value: meal plan data)
 let weeklyMealPlans = {};
 
+// Make weeklyMealPlans globally accessible for reset functionality
+window.weeklyMealPlans = weeklyMealPlans;
+
 /**
  * Initialize meal planner with API
  */
@@ -319,10 +322,12 @@ function loadWeeklyMealPlansFromStorage() {
     if (stored) {
         try {
             weeklyMealPlans = JSON.parse(stored);
+            window.weeklyMealPlans = weeklyMealPlans; // Update global reference
             console.log('📅 Loaded weekly meal plans from storage:', Object.keys(weeklyMealPlans));
         } catch (error) {
             console.error('Error parsing stored meal plans:', error);
             weeklyMealPlans = {};
+            window.weeklyMealPlans = weeklyMealPlans;
         }
     }
 }
@@ -344,6 +349,10 @@ function saveWeeklyMealPlansToStorage() {
  */
 function displayCurrentWeekMealPlan() {
     const weekKey = getCurrentWeekKey();
+    
+    // Reload from localStorage to ensure we have the latest data
+    loadWeeklyMealPlansFromStorage();
+    
     const mealPlan = weeklyMealPlans[weekKey];
     
     if (mealPlan) {
