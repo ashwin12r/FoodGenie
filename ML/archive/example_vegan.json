@@ -1,0 +1,23 @@
+{
+  "scenario": "Vegan South Indian Plant-Based",
+  "user_preferences": {
+    "diet": "Vegan",
+    "preferred_cuisines": ["South Indian"],
+    "daily_calorie_target": 1800,
+    "weekly_budget": 1100,
+    "preferred_flavors": ["spicy", "sour"],
+    "cooking_time_limit": 40,
+    "region": "South",
+    "goals": ["immunity", "energy"],
+    "cost_per_meal_limit": 65
+  },
+  "description": "This example demonstrates a complete plant-based meal plan focusing on South Indian cuisine. The system excludes all dairy, eggs, and animal products while ensuring nutritional adequacy through dal, vegetables, coconut, and rice-based dishes. Perfect for those following ethical or health-driven vegan diets.",
+  "expected_output": {
+    "budget_status": "optimal",
+    "avg_cost_per_meal": "₹50-60",
+    "daily_protein": "> 45g (plant sources)",
+    "zero_animal_products": true,
+    "regional_focus": "South Indian dishes only",
+    "calorie_accuracy": "> 90%"
+  }
+}

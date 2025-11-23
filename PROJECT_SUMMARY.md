@@ -43,7 +43,7 @@
 - **Cost Optimizer** - Budget-aware meal recommendations
 - **Meal Combination Engine** - Balanced breakfast, lunch, dinner pairings
 - **AI Shopping Automation** - Automated ingredient ordering via browser automation
-
+p
 ---
 
 ## 📁 Project Structure

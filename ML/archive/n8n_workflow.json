@@ -1,0 +1,143 @@
+{
+  "name": "Grocery Price Scraper with Bright Data",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "grocery-prices",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract items from webhook payload\nconst items = $input.item.json.body.items;\nconst location = $input.item.json.body.location || 'Chennai';\n\n// Return items as separate entries for loop processing\nreturn items.map(item => ({\n  json: {\n    item_name: item,\n    location: location\n  }\n}));"
+      },
+      "name": "Extract Items",
+      "type": "n8n-nodes-base.code",
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Loop Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.bigbasket.com/ps/?q={{ $json.item_name }}",
+        "proxyUrl": "http://brd-customer-hl_dde66e96-zone-webscrape:18y4rj198mpn@brd.superproxy.io:33335",
+        "options": {
+          "waitForSelector": ".ProductCard___StyledDiv2-sc-zz1k6w-3",
+          "timeout": 30000
+        }
+      },
+      "name": "Scrape BigBasket",
+      "type": "n8n-nodes-base.puppeteer",
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.zeptonow.com/search?query={{ $json.item_name }}",
+        "proxyUrl": "http://brd-customer-hl_dde66e96-zone-webscrape:18y4rj198mpn@brd.superproxy.io:33335",
+        "options": {
+          "waitForSelector": "[data-testid='product-card']",
+          "timeout": 30000
+        }
+      },
+      "name": "Scrape Zepto",
+      "type": "n8n-nodes-base.puppeteer",
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.swiggy.com/instamart/search?query={{ $json.item_name }}",
+        "proxyUrl": "http://brd-customer-hl_dde66e96-zone-webscrape:18y4rj198mpn@brd.superproxy.io:33335",
+        "options": {
+          "waitForSelector": "[data-testid='product-item']",
+          "timeout": 30000
+        }
+      },
+      "name": "Scrape Swiggy",
+      "type": "n8n-nodes-base.puppeteer",
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract prices from all 3 sources\nconst bigbasket = $input.first().json;\nconst zepto = $input.item(1).json;\nconst swiggy = $input.item(2).json;\n\nconst prices = [];\n\n// Parse BigBasket price\nif (bigbasket.price) {\n  const match = bigbasket.price.match(/[\\d,]+\\.?\\d*/);\n  if (match) prices.push(parseFloat(match[0].replace(',', '')));\n}\n\n// Parse Zepto price\nif (zepto.price) {\n  const match = zepto.price.match(/[\\d,]+\\.?\\d*/);\n  if (match) prices.push(parseFloat(match[0].replace(',', '')));\n}\n\n// Parse Swiggy price\nif (swiggy.price) {\n  const match = swiggy.price.match(/[\\d,]+\\.?\\d*/);\n  if (match) prices.push(parseFloat(match[0].replace(',', '')));\n}\n\n// Calculate average\nconst avgPrice = prices.length > 0 \n  ? prices.reduce((a, b) => a + b, 0) / prices.length \n  : null;\n\nreturn [{\n  json: {\n    item: $('Loop Items').item.json.item_name,\n    price: avgPrice,\n    sources: prices.length,\n    prices: prices\n  }\n}];"
+      },
+      "name": "Calculate Average",
+      "type": "n8n-nodes-base.code",
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "operation": "aggregateItems",
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "name": "Aggregate Results",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format final response\nconst items = $input.all();\n\nconst prices = {};\nconst stats = {\n  total: items.length,\n  success: 0,\n  failed: 0\n};\n\nitems.forEach(item => {\n  const data = item.json;\n  if (data.price !== null) {\n    prices[data.item] = data.price;\n    stats.success++;\n  } else {\n    stats.failed++;\n  }\n});\n\nreturn [{\n  json: {\n    prices: prices,\n    stats: stats,\n    timestamp: new Date().toISOString(),\n    location: $('Loop Items').item.json.location\n  }\n}];"
+      },
+      "name": "Format Response",
+      "type": "n8n-nodes-base.code",
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [1650, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{"node": "Extract Items", "type": "main", "index": 0}]]
+    },
+    "Extract Items": {
+      "main": [[{"node": "Loop Items", "type": "main", "index": 0}]]
+    },
+    "Loop Items": {
+      "main": [
+        [
+          {"node": "Scrape BigBasket", "type": "main", "index": 0},
+          {"node": "Scrape Zepto", "type": "main", "index": 0},
+          {"node": "Scrape Swiggy", "type": "main", "index": 0}
+        ],
+        [{"node": "Aggregate Results", "type": "main", "index": 0}]
+      ]
+    },
+    "Scrape BigBasket": {
+      "main": [[{"node": "Calculate Average", "type": "main", "index": 0}]]
+    },
+    "Scrape Zepto": {
+      "main": [[{"node": "Calculate Average", "type": "main", "index": 0}]]
+    },
+    "Scrape Swiggy": {
+      "main": [[{"node": "Calculate Average", "type": "main", "index": 0}]]
+    },
+    "Calculate Average": {
+      "main": [[{"node": "Loop Items", "type": "main", "index": 0}]]
+    },
+    "Aggregate Results": {
+      "main": [[{"node": "Format Response", "type": "main", "index": 0}]]
+    },
+    "Format Response": {
+      "main": [[{"node": "Respond to Webhook", "type": "main", "index": 0}]]
+    }
+  }
+}

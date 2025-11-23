@@ -1,0 +1,296 @@
+{
+  "weekly_plan": [
+    {
+      "day": "Monday",
+      "meals": {
+        "breakfast": {
+          "dish": "Sattu ki roti",
+          "time": "30 min",
+          "calories": "1059 kcal",
+          "protein": "17.5g",
+          "carbs": "126.0g",
+          "fat": "55.1g",
+          "cost": "₹15.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Makki di roti sarson da saag",
+          "time": "55 min",
+          "calories": "635 kcal",
+          "protein": "22.6g",
+          "carbs": "132.3g",
+          "fat": "3.3g",
+          "cost": "₹18.08",
+          "reason": "budget-friendly, high protein, regional North dish"
+        },
+        "dinner": {
+          "dish": "Chole bhature",
+          "time": "50 min",
+          "calories": "450 kcal",
+          "protein": "15.0g",
+          "carbs": "60.0g",
+          "fat": "12.0g",
+          "cost": "₹15.0",
+          "reason": "budget-friendly, high protein, regional North dish"
+        }
+      }
+    },
+    {
+      "day": "Tuesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Shahi paneer",
+          "time": "60 min",
+          "calories": "495 kcal",
+          "protein": "33.1g",
+          "carbs": "8.9g",
+          "fat": "35.4g",
+          "cost": "₹29.0",
+          "reason": "budget-friendly, high protein, regional North dish"
+        },
+        "lunch": {
+          "dish": "Palak paneer",
+          "time": "60 min",
+          "calories": "611 kcal",
+          "protein": "20.4g",
+          "carbs": "8.0g",
+          "fat": "55.7g",
+          "cost": "₹42.0",
+          "reason": "high protein, regional North dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Kofta",
+          "time": "60 min",
+          "calories": "626 kcal",
+          "protein": "25.9g",
+          "carbs": "26.2g",
+          "fat": "45.6g",
+          "cost": "₹33.5",
+          "reason": "budget-friendly, high protein, regional North dish"
+        }
+      }
+    },
+    {
+      "day": "Wednesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Shufta",
+          "time": "-2 min",
+          "calories": "265 kcal",
+          "protein": "18.0g",
+          "carbs": "1.2g",
+          "fat": "20.0g",
+          "cost": "₹39.33",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Paneer tikka masala",
+          "time": "60 min",
+          "calories": "789 kcal",
+          "protein": "26.8g",
+          "carbs": "93.7g",
+          "fat": "34.6g",
+          "cost": "₹34.0",
+          "reason": "budget-friendly, high protein, regional North dish"
+        },
+        "dinner": {
+          "dish": "Aloo tikki",
+          "time": "25 min",
+          "calories": "362 kcal",
+          "protein": "8.2g",
+          "carbs": "78.8g",
+          "fat": "0.7g",
+          "cost": "₹15.58",
+          "reason": "budget-friendly, quick to prepare, regional North dish"
+        }
+      }
+    },
+    {
+      "day": "Thursday",
+      "meals": {
+        "breakfast": {
+          "dish": "Vegetable jalfrezi",
+          "time": "40 min",
+          "calories": "126 kcal",
+          "protein": "4.7g",
+          "carbs": "29.8g",
+          "fat": "0.5g",
+          "cost": "₹17.33",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Paratha",
+          "time": "60 min",
+          "calories": "737 kcal",
+          "protein": "14.3g",
+          "carbs": "103.9g",
+          "fat": "30.2g",
+          "cost": "₹21.5",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Bhatura",
+          "time": "40 min",
+          "calories": "936 kcal",
+          "protein": "26.1g",
+          "carbs": "202.5g",
+          "fat": "1.8g",
+          "cost": "₹17.33",
+          "reason": "budget-friendly, high protein, regional North dish"
+        }
+      }
+    },
+    {
+      "day": "Friday",
+      "meals": {
+        "breakfast": {
+          "dish": "Bhindi masala",
+          "time": "50 min",
+          "calories": "63 kcal",
+          "protein": "3.1g",
+          "carbs": "13.7g",
+          "fat": "0.7g",
+          "cost": "₹16.17",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Chana masala",
+          "time": "50 min",
+          "calories": "398 kcal",
+          "protein": "11.2g",
+          "carbs": "37.7g",
+          "fat": "23.3g",
+          "cost": "₹26.17",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Dal tadka",
+          "time": "40 min",
+          "calories": "212 kcal",
+          "protein": "10.7g",
+          "carbs": "40.2g",
+          "fat": "0.9g",
+          "cost": "₹17.33",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        }
+      }
+    },
+    {
+      "day": "Saturday",
+      "meals": {
+        "breakfast": {
+          "dish": "Lauki ke kofte",
+          "time": "60 min",
+          "calories": "49 kcal",
+          "protein": "2.1g",
+          "carbs": "11.9g",
+          "fat": "0.0g",
+          "cost": "₹15.5",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Aloo matar",
+          "time": "45 min",
+          "calories": "276 kcal",
+          "protein": "12.2g",
+          "carbs": "54.2g",
+          "fat": "0.9g",
+          "cost": "₹19.25",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Aloo methi",
+          "time": "50 min",
+          "calories": "599 kcal",
+          "protein": "3.5g",
+          "carbs": "29.8g",
+          "fat": "52.7g",
+          "cost": "₹15.0",
+          "reason": "budget-friendly, regional North dish"
+        }
+      }
+    },
+    {
+      "day": "Sunday",
+      "meals": {
+        "breakfast": {
+          "dish": "Lassi",
+          "time": "10 min",
+          "calories": "218 kcal",
+          "protein": "3.5g",
+          "carbs": "51.6g",
+          "fat": "0.4g",
+          "cost": "₹15.0",
+          "reason": "budget-friendly, quick to prepare, regional North dish"
+        },
+        "lunch": {
+          "dish": "Mushroom matar",
+          "time": "40 min",
+          "calories": "143 kcal",
+          "protein": "10.8g",
+          "carbs": "22.9g",
+          "fat": "1.7g",
+          "cost": "₹19.83",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Mushroom do pyaza",
+          "time": "40 min",
+          "calories": "77 kcal",
+          "protein": "10.8g",
+          "carbs": "11.5g",
+          "fat": "1.1g",
+          "cost": "₹15.0",
+          "reason": "budget-friendly, regional North dish, spicy flavor match"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_cost": "₹456.9",
+    "avg_cost_per_meal": "₹21.76",
+    "weekly_budget": "₹1000",
+    "budget_status": "under",
+    "calorie_balance_accuracy": "65.2%",
+    "daily_avg_calories": 1304.0,
+    "daily_avg_protein": "42.9g",
+    "ingredient_overlap_score": "37.1%"
+  },
+  "shopping_list": {
+    "garam masala": 13,
+    "ginger": 8,
+    "potato": 5,
+    "cottage cheese": 3,
+    "cream": 3,
+    "chillies": 3,
+    "palak": 2,
+    "chole": 2,
+    "malai": 2,
+    "butter": 2,
+    "paneer": 2,
+    "salt": 2,
+    "yogurt": 2,
+    "kasuri methi": 2,
+    "tomatoes": 2,
+    "red onion": 2,
+    "sattu": 1,
+    "atta": 1,
+    "dough": 1,
+    "filling": 1
+  },
+  "batch_cooking_suggestions": [
+    "Batch prep garam masala - used on days Monday, Monday, Tuesday",
+    "Batch prep ginger - used on days Monday, Tuesday, Thursday",
+    "Batch prep cottage cheese - used on days Tuesday, Tuesday, Wednesday",
+    "Batch prep cream - used on days Tuesday, Tuesday, Wednesday",
+    "Batch prep potato - used on days Tuesday, Wednesday, Thursday"
+  ],
+  "nutrition_summary": {
+    "total_weekly_calories": 9126.0,
+    "daily_avg_calories": 1304.0,
+    "total_weekly_protein": 300.5,
+    "daily_avg_protein": 42.9,
+    "calorie_target_accuracy": "65.2%",
+    "total_cost": 456.9
+  }
+}

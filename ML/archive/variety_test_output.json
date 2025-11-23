@@ -1,0 +1,296 @@
+{
+  "weekly_plan": [
+    {
+      "day": "Monday",
+      "meals": {
+        "breakfast": {
+          "dish": "Kootu + Coconut Chutney",
+          "time": "25 min",
+          "calories": "637 kcal",
+          "protein": "38.8g",
+          "carbs": "109.2g",
+          "fat": "7.0g",
+          "cost": "₹29.58",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Bisi bele bath + Rice",
+          "time": "75 min",
+          "calories": "850 kcal",
+          "protein": "48.0g",
+          "carbs": "157.0g",
+          "fat": "6.4g",
+          "cost": "₹37.75",
+          "reason": "budget-friendly, high protein, regional South dish"
+        },
+        "dinner": {
+          "dish": "Poriyal + Roti",
+          "time": "45 min",
+          "calories": "822 kcal",
+          "protein": "53.6g",
+          "carbs": "142.8g",
+          "fat": "8.1g",
+          "cost": "₹25.75",
+          "reason": "budget-friendly, high protein, regional South dish"
+        }
+      }
+    },
+    {
+      "day": "Tuesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Kothamali sadam + Coconut Chutney",
+          "time": "30 min",
+          "calories": "879 kcal",
+          "protein": "52.4g",
+          "carbs": "152.1g",
+          "fat": "9.3g",
+          "cost": "₹26.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Kuzhambu + Rice + Papad",
+          "time": "35 min",
+          "calories": "681 kcal",
+          "protein": "36.5g",
+          "carbs": "130.4g",
+          "fat": "3.0g",
+          "cost": "₹31.42",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Currivepillai sadam  + Papad",
+          "time": "30 min",
+          "calories": "983 kcal",
+          "protein": "66.3g",
+          "carbs": "167.2g",
+          "fat": "9.8g",
+          "cost": "₹21.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    },
+    {
+      "day": "Wednesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Thayir sadam + Coconut Chutney",
+          "time": "30 min",
+          "calories": "734 kcal",
+          "protein": "33.8g",
+          "carbs": "79.2g",
+          "fat": "32.9g",
+          "cost": "₹27.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Koshambri + Rice",
+          "time": "30 min",
+          "calories": "1010 kcal",
+          "protein": "61.8g",
+          "carbs": "190.2g",
+          "fat": "3.3g",
+          "cost": "₹26.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Puli sadam + Papad",
+          "time": "30 min",
+          "calories": "715 kcal",
+          "protein": "43.8g",
+          "carbs": "129.8g",
+          "fat": "3.2g",
+          "cost": "₹20.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    },
+    {
+      "day": "Thursday",
+      "meals": {
+        "breakfast": {
+          "dish": "Paniyaram + Coconut Chutney",
+          "time": "30 min",
+          "calories": "824 kcal",
+          "protein": "19.2g",
+          "carbs": "183.8g",
+          "fat": "2.9g",
+          "cost": "₹20.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Paruppu sadam + Rice + Papad",
+          "time": "30 min",
+          "calories": "786 kcal",
+          "protein": "42.2g",
+          "carbs": "150.2g",
+          "fat": "3.5g",
+          "cost": "₹29.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Keerai masiyal + Roti",
+          "time": "45 min",
+          "calories": "839 kcal",
+          "protein": "35.3g",
+          "carbs": "174.8g",
+          "fat": "3.1g",
+          "cost": "₹23.75",
+          "reason": "budget-friendly, high protein, regional South dish"
+        }
+      }
+    },
+    {
+      "day": "Friday",
+      "meals": {
+        "breakfast": {
+          "dish": "Kos kootu + Coconut Chutney",
+          "time": "30 min",
+          "calories": "1010 kcal",
+          "protein": "65.2g",
+          "carbs": "172.8g",
+          "fat": "10.9g",
+          "cost": "₹24.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Keerai poriyal + Roti",
+          "time": "50 min",
+          "calories": "880 kcal",
+          "protein": "62.5g",
+          "carbs": "153.2g",
+          "fat": "4.5g",
+          "cost": "₹21.17",
+          "reason": "budget-friendly, high protein, regional South dish"
+        },
+        "dinner": {
+          "dish": "Avial + Rice",
+          "time": "75 min",
+          "calories": "769 kcal",
+          "protein": "45.8g",
+          "carbs": "145.3g",
+          "fat": "3.0g",
+          "cost": "₹32.25",
+          "reason": "budget-friendly, high protein, regional South dish"
+        }
+      }
+    },
+    {
+      "day": "Saturday",
+      "meals": {
+        "breakfast": {
+          "dish": "Vada + Sambar + Coconut Chutney",
+          "time": "35 min",
+          "calories": "473 kcal",
+          "protein": "30.5g",
+          "carbs": "77.2g",
+          "fat": "5.5g",
+          "cost": "₹36.92",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Sambar",
+          "time": "65 min",
+          "calories": "413 kcal",
+          "protein": "31.5g",
+          "carbs": "26.4g",
+          "fat": "19.9g",
+          "cost": "₹21.42",
+          "reason": "budget-friendly, high protein, regional South dish"
+        },
+        "dinner": {
+          "dish": "Keerai kootu + Rice + Papad",
+          "time": "50 min",
+          "calories": "1387 kcal",
+          "protein": "46.5g",
+          "carbs": "152.8g",
+          "fat": "70.8g",
+          "cost": "₹39.67",
+          "reason": "budget-friendly, high protein, regional South dish"
+        }
+      }
+    },
+    {
+      "day": "Sunday",
+      "meals": {
+        "breakfast": {
+          "dish": "Uttapam + Sambar + Coconut Chutney",
+          "time": "30 min",
+          "calories": "445 kcal",
+          "protein": "22.2g",
+          "carbs": "60.9g",
+          "fat": "13.8g",
+          "cost": "₹49.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Kaara kozhambu + Rice",
+          "time": "45 min",
+          "calories": "696 kcal",
+          "protein": "5.6g",
+          "carbs": "51.8g",
+          "fat": "53.4g",
+          "cost": "₹25.0",
+          "reason": "budget-friendly, regional South dish, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Theeyal + Rice",
+          "time": "35 min",
+          "calories": "718 kcal",
+          "protein": "7.1g",
+          "carbs": "57.2g",
+          "fat": "53.2g",
+          "cost": "₹25.0",
+          "reason": "budget-friendly, quick to prepare, regional South dish"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_cost": "₹593.68",
+    "avg_cost_per_meal": "₹28.27",
+    "weekly_budget": "₹1500",
+    "budget_status": "under",
+    "calorie_balance_accuracy": "81.8%",
+    "daily_avg_calories": 2364.0,
+    "daily_avg_protein": "121.2g",
+    "ingredient_overlap_score": "46.2%"
+  },
+  "shopping_list": {
+    "urad dal": 13,
+    "curry leaves": 11,
+    "chana dal": 8,
+    "tomato": 4,
+    "tamarind": 4,
+    "sesame oil": 3,
+    "ginger": 3,
+    "mustard seeds": 3,
+    "moong dal": 3,
+    "sambar powder": 3,
+    "beans": 2,
+    "coconut": 2,
+    "drumsticks": 2,
+    "spinach": 2,
+    "potato": 1,
+    "peas": 1,
+    "split pigeon peas": 1,
+    "green peas": 1,
+    "french beans": 1,
+    "mustard": 1
+  },
+  "batch_cooking_suggestions": [
+    "Batch prep chana dal - used on days Monday, Monday, Monday",
+    "Batch prep urad dal - used on days Monday, Monday, Monday",
+    "Batch prep curry leaves - used on days Tuesday, Tuesday, Tuesday",
+    "Batch prep tomato - used on days Tuesday, Thursday, Sunday",
+    "Batch prep sesame oil - used on days Wednesday, Sunday, Sunday"
+  ],
+  "nutrition_summary": {
+    "total_weekly_calories": 16551.0,
+    "daily_avg_calories": 2364.0,
+    "total_weekly_protein": 848.6,
+    "daily_avg_protein": 121.2,
+    "calorie_target_accuracy": "81.8%",
+    "total_cost": 593.68
+  }
+}

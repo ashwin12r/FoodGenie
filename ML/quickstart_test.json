@@ -1,0 +1,296 @@
+{
+  "weekly_plan": [
+    {
+      "day": "Monday",
+      "meals": {
+        "breakfast": {
+          "dish": "Dhokla + Coconut Chutney",
+          "time": "30 min",
+          "calories": "590 kcal",
+          "protein": "19.0g",
+          "carbs": "114.0g",
+          "fat": "3.5g",
+          "cost": "\u20b920.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Thayir sadam + Papad",
+          "time": "30 min",
+          "calories": "714 kcal",
+          "protein": "33.8g",
+          "carbs": "78.2g",
+          "fat": "31.4g",
+          "cost": "\u20b924.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Puri Bhaji",
+          "time": "40 min",
+          "calories": "623 kcal",
+          "protein": "42.0g",
+          "carbs": "112.0g",
+          "fat": "2.5g",
+          "cost": "\u20b918.33",
+          "reason": "budget-friendly, high protein, spicy flavor match"
+        }
+      }
+    },
+    {
+      "day": "Tuesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Upma + Coconut Chutney",
+          "time": "30 min",
+          "calories": "502 kcal",
+          "protein": "22.0g",
+          "carbs": "95.6g",
+          "fat": "5.0g",
+          "cost": "\u20b926.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Kootu + Rice + Papad",
+          "time": "25 min",
+          "calories": "817 kcal",
+          "protein": "42.8g",
+          "carbs": "153.2g",
+          "fat": "6.0g",
+          "cost": "\u20b936.58",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Puli sadam + Papad",
+          "time": "30 min",
+          "calories": "715 kcal",
+          "protein": "43.8g",
+          "carbs": "129.8g",
+          "fat": "3.2g",
+          "cost": "\u20b920.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    },
+    {
+      "day": "Wednesday",
+      "meals": {
+        "breakfast": {
+          "dish": "Vada + Sambar + Coconut Chutney",
+          "time": "35 min",
+          "calories": "473 kcal",
+          "protein": "30.5g",
+          "carbs": "77.2g",
+          "fat": "5.5g",
+          "cost": "\u20b936.92",
+          "reason": "budget-friendly, high protein, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Koshambri + Rice",
+          "time": "30 min",
+          "calories": "1010 kcal",
+          "protein": "61.8g",
+          "carbs": "190.2g",
+          "fat": "3.3g",
+          "cost": "\u20b926.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Kothamali sadam + Papad",
+          "time": "30 min",
+          "calories": "859 kcal",
+          "protein": "52.4g",
+          "carbs": "151.1g",
+          "fat": "7.8g",
+          "cost": "\u20b923.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    },
+    {
+      "day": "Thursday",
+      "meals": {
+        "breakfast": {
+          "dish": "Uttapam + Sambar + Coconut Chutney",
+          "time": "30 min",
+          "calories": "445 kcal",
+          "protein": "22.2g",
+          "carbs": "60.9g",
+          "fat": "13.8g",
+          "cost": "\u20b949.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "lunch": {
+          "dish": "Sev tameta + Rice",
+          "time": "50 min",
+          "calories": "909 kcal",
+          "protein": "5.6g",
+          "carbs": "226.8g",
+          "fat": "0.9g",
+          "cost": "\u20b925.0",
+          "reason": "budget-friendly, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Makki di roti sarson da saag + Rice",
+          "time": "55 min",
+          "calories": "835 kcal",
+          "protein": "26.6g",
+          "carbs": "177.3g",
+          "fat": "3.8g",
+          "cost": "\u20b928.08",
+          "reason": "budget-friendly, high protein, spicy flavor match"
+        }
+      }
+    },
+    {
+      "day": "Friday",
+      "meals": {
+        "breakfast": {
+          "dish": "Poha + Coconut Chutney",
+          "time": "50 min",
+          "calories": "205 kcal",
+          "protein": "4.5g",
+          "carbs": "39.8g",
+          "fat": "2.3g",
+          "cost": "\u20b920.0",
+          "reason": "budget-friendly, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Jeera Aloo + Rice",
+          "time": "40 min",
+          "calories": "799 kcal",
+          "protein": "7.5g",
+          "carbs": "74.8g",
+          "fat": "53.2g",
+          "cost": "\u20b925.0",
+          "reason": "budget-friendly, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Paniyaram + Rice",
+          "time": "30 min",
+          "calories": "974 kcal",
+          "protein": "22.2g",
+          "carbs": "222.8g",
+          "fat": "1.4g",
+          "cost": "\u20b925.0",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    },
+    {
+      "day": "Saturday",
+      "meals": {
+        "breakfast": {
+          "dish": "Muthiya + Coconut Chutney",
+          "time": "45 min",
+          "calories": "407 kcal",
+          "protein": "12.3g",
+          "carbs": "79.7g",
+          "fat": "3.2g",
+          "cost": "\u20b920.0",
+          "reason": "budget-friendly"
+        },
+        "lunch": {
+          "dish": "Khorisa + Rice",
+          "time": "45 min",
+          "calories": "799 kcal",
+          "protein": "7.5g",
+          "carbs": "74.8g",
+          "fat": "53.2g",
+          "cost": "\u20b925.0",
+          "reason": "budget-friendly, spicy flavor match"
+        },
+        "dinner": {
+          "dish": "Aloo tikki + Rice",
+          "time": "25 min",
+          "calories": "562 kcal",
+          "protein": "12.2g",
+          "carbs": "123.8g",
+          "fat": "1.2g",
+          "cost": "\u20b925.58",
+          "reason": "budget-friendly, quick to prepare, spicy flavor match"
+        }
+      }
+    },
+    {
+      "day": "Sunday",
+      "meals": {
+        "breakfast": {
+          "dish": "Thepla + Coconut Chutney",
+          "time": "45 min",
+          "calories": "560 kcal",
+          "protein": "16.0g",
+          "carbs": "114.0g",
+          "fat": "4.2g",
+          "cost": "\u20b920.0",
+          "reason": "budget-friendly, high protein, spicy flavor match"
+        },
+        "lunch": {
+          "dish": "Gatta curry + Rice",
+          "time": "30 min",
+          "calories": "974 kcal",
+          "protein": "22.2g",
+          "carbs": "222.8g",
+          "fat": "1.4g",
+          "cost": "\u20b927.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        },
+        "dinner": {
+          "dish": "Paruppu sadam + Rice + Papad",
+          "time": "30 min",
+          "calories": "786 kcal",
+          "protein": "42.2g",
+          "carbs": "150.2g",
+          "fat": "3.5g",
+          "cost": "\u20b929.5",
+          "reason": "budget-friendly, quick to prepare, high protein"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_cost": "\u20b9551.49",
+    "avg_cost_per_meal": "\u20b926.26",
+    "weekly_budget": "\u20b9500",
+    "budget_status": "slightly over",
+    "calorie_balance_accuracy": "96.0%",
+    "daily_avg_calories": 2080.0,
+    "daily_avg_protein": "78.4g",
+    "ingredient_overlap_score": "39.8%"
+  },
+  "shopping_list": {
+    "curry leaves": 10,
+    "urad dal": 8,
+    "ginger": 8,
+    "chana dal": 4,
+    "potato": 4,
+    "green chilies": 3,
+    "lemon juice": 3,
+    "tomato": 3,
+    "rava": 2,
+    "gram flour": 2,
+    "mustard": 2,
+    "sugar": 2,
+    "garam masala": 2,
+    "yogurt": 2,
+    "coconut": 1,
+    "sesame": 1,
+    "curd": 1,
+    "sesame oil": 1,
+    "mustard seeds": 1,
+    "aloo": 1
+  },
+  "batch_cooking_suggestions": [
+    "Batch prep urad dal - used on days Monday, Monday, Tuesday",
+    "Batch prep ginger - used on days Monday, Monday, Tuesday",
+    "Batch prep curry leaves - used on days Monday, Monday, Tuesday",
+    "Batch prep chana dal - used on days Tuesday, Tuesday, Wednesday",
+    "Batch prep potato - used on days Tuesday, Friday, Saturday"
+  ],
+  "nutrition_summary": {
+    "total_weekly_calories": 14558.0,
+    "daily_avg_calories": 2080.0,
+    "total_weekly_protein": 549.1,
+    "daily_avg_protein": 78.4,
+    "calorie_target_accuracy": "96.0%",
+    "total_cost": 551.49
+  }
+}

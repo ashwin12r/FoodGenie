@@ -1,0 +1,21 @@
+{
+  "scenario": "Budget-Conscious Vegetarian North Indian",
+  "user_preferences": {
+    "diet": "Vegetarian",
+    "preferred_cuisines": ["North Indian"],
+    "daily_calorie_target": 2000,
+    "weekly_budget": 1000,
+    "preferred_flavors": ["spicy", "mild"],
+    "cooking_time_limit": 45,
+    "region": "North",
+    "goals": ["weight loss", "energy"],
+    "cost_per_meal_limit": 60
+  },
+  "description": "This example demonstrates a cost-optimized meal plan for a vegetarian user preferring North Indian cuisine with a tight budget of ₹1000/week. The system prioritizes affordable ingredients like dal, aloo, and seasonal vegetables while maintaining nutritional balance.",
+  "expected_output": {
+    "budget_status": "optimal or under",
+    "avg_cost_per_meal": "< ₹50",
+    "daily_protein": "> 50g",
+    "calorie_accuracy": "> 90%"
+  }
+}
